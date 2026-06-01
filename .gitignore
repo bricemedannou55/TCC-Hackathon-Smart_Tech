@@ -1,0 +1,14 @@
+# Exclure les dépendances Node de l'app mobile
+mobile-app/node_modules/
+mobile-app/.expo/
+
+# Exclure l'environnement virtuel Python et les fichiers caches
+backend-ai/venv/
+backend-ai/__pycache__/
+backend-ai/app/__pycache__/
+.pytest_cache/
+
+# Exclure les fichiers systèmes et de configuration locaux
+.DS_Store
+.env
+Thumbs.db
