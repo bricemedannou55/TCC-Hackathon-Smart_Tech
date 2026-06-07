@@ -1,0 +1,92 @@
+{
+  "Tomato___Bacterial_spot": {
+    "nom_fr": "Gale bactérienne de la tomate",
+    "description": "Maladie causée par une bactérie entraînant des taches noires sur les feuilles et les fruits.",
+    "preventif": "Utiliser des semences certifiées. Pratiquer la rotation des cultures (ne pas replanter de tomates au même endroit pendant 3 ans).",
+    "curatif": "Arracher et brûler les plants sévèrement touchés. Appliquer un traitement fongicide/bactéricide à base de cuivre (Bouillie bordelaise) dès les premiers symptômes."
+  },
+  "Tomato___Early_blight": {
+    "nom_fr": "Alternariose (Brûlure hâtive) de la tomate",
+    "description": "Champignon qui crée des taches brunes circulaires avec des cercles concentriques sur les vieilles feuilles.",
+    "preventif": "Arroser au pied sans mouiller le feuillage. Espacer les plants pour une bonne circulation de l'air.",
+    "curatif": "Retirer les feuilles du bas touchées. Appliquer un fongicide naturel comme une décoction de prêle, ou un fongicide homologué en cas de forte attaque."
+  },
+  "Tomato___Late_blight": {
+    "nom_fr": "Mildiou de la tomate",
+    "description": "L'une des maladies les plus dangereuses. Taches brun-noir d'aspect huileux se propageant très rapidement par temps humide.",
+    "preventif": "Éviter l'excès d'humidité. Planter des variétés résistantes.",
+    "curatif": "Traiter immédiatement à la bouillie bordelaise (cuivre). Supprimer immédiatement les parties infectées."
+  },
+  "Tomato___Leaf_Mold": {
+    "nom_fr": "Moisissure fuligineuse (Cladosporiose)",
+    "description": "Feutrage de couleur olive à violet sous les feuilles, fréquent dans les zones très humides.",
+    "preventif": "Bien ventiler les cultures, éviter les plantations trop denses.",
+    "curatif": "Pulvérisation d'un fongicide à base de soufre ou de cuivre."
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "nom_fr": "Septoriose de la tomate",
+    "description": "Nombreuses petites taches grises à bord brun sur les feuilles inférieures.",
+    "preventif": "Pailler le sol pour éviter que l'eau de pluie ne projette le champignon de la terre vers les feuilles.",
+    "curatif": "Couper les feuilles malades et appliquer un traitement fongicide adapté."
+  },
+  "Tomato___Spider_mites_Two_spotted_spider_mite": {
+    "nom_fr": "Attaque d'Acariens (Araignées rouges)",
+    "description": "Minuscules araignées qui sucent la sève, provoquant le jaunissement et le dessèchement des feuilles.",
+    "preventif": "Maintenir une humidité ambiante (les acariens détestent l'eau).",
+    "curatif": "Pulvériser du purin d'ortie ou une solution d'eau savonneuse (savon noir) sous les feuilles."
+  },
+  "Tomato___Target_Spot": {
+    "nom_fr": "Corynesporiose (Taches en cible)",
+    "description": "Taches claires avec des cercles concentriques sombres sur les feuilles et les fruits.",
+    "preventif": "Gérer les mauvaises herbes autour du champ qui abritent le champignon.",
+    "curatif": "Traitement fongicide précoce dès l'apparition des taches."
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "nom_fr": "Virus de l'enroulement jaune des feuilles (TYLCV)",
+    "description": "Transmis par la mouche blanche (Bemisia tabaci). Les feuilles s'enroulent vers le haut et jaunissent. La plante s'arrête de grandir.",
+    "preventif": "Lutter contre le vecteur (la mouche blanche) en installant des filets ou des pièges collants jaunes.",
+    "curatif": "Il n'existe aucun traitement curatif contre le virus. Il faut impérativement arracher et détruire le plant pour éviter la contagion."
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "nom_fr": "Virus de la mosaïque de la tomate",
+    "description": "Feuilles marbrées de vert clair et vert foncé, parfois déformées.",
+    "preventif": "Se laver soigneusement les mains et désinfecter les outils avant de manipuler les plantes (le virus se transmet par le toucher).",
+    "curatif": "Pas de traitement. Arrachage immédiat des plants infectés."
+  },
+  "Tomato___healthy": {
+    "nom_fr": "Tomate Saine (Pas de maladie)",
+    "description": "Le plant de tomate est vigoureux, les feuilles ont une belle couleur verte homogène.",
+    "preventif": "Continuer un arrosage régulier sans excès, apporter du compost au besoin et surveiller l'apparition d'insectes.",
+    "curatif": "Aucun traitement nécessaire. Excellent travail !"
+  },
+  "Corn_(maize)___Cercospora_leaf_spot_Gray_leaf_spot": {
+    "nom_fr": "Cercosporiose (Taches grises du Maïs)",
+    "description": "Taches rectangulaires grises/brunâtres allongées parallèlement aux nervures.",
+    "preventif": "Pratiquer la rotation des cultures. Choisir des variétés de maïs résistantes.",
+    "curatif": "En grande culture, l'application de fongicides n'est rentable que si l'attaque survient avant la floraison."
+  },
+  "Corn_(maize)___Common_rust_": {
+    "nom_fr": "Rouille commune du Maïs",
+    "description": "Pustules poudreuses de couleur brun-rouille sur les deux faces des feuilles.",
+    "preventif": "Planter tôt dans la saison. Utiliser des hybrides résistants adaptés au climat local.",
+    "curatif": "Généralement contrôlé par la résistance naturelle de la plante. Destruction des résidus de récolte après la saison."
+  },
+  "Corn_(maize)___Northern_Leaf_Blight": {
+    "nom_fr": "Helminthosporiose (Brûlure du Nord) du Maïs",
+    "description": "Grandes taches en forme de cigare (longues et elliptiques) de couleur gris-vert à brune.",
+    "preventif": "Enfouissement des résidus de récolte par le labour pour détruire le champignon qui hiverne dans le sol.",
+    "curatif": "Utilisation de fongicides spécifiques si l'infection est détectée très tôt sur une culture à haute valeur."
+  },
+  "Corn_(maize)___healthy": {
+    "nom_fr": "Maïs Sain (Pas de maladie)",
+    "description": "Le maïs présente une croissance normale avec des feuilles bien vertes et des tiges solides.",
+    "preventif": "Maintenir un bon désherbage pour éviter la compétition pour les nutriments, veiller à la fertilisation azotée.",
+    "curatif": "Aucun traitement requis."
+  },
+  "Default": {
+    "nom_fr": "Diagnostic validé - Remède en cours",
+    "description": "L'IA a identifié la pathologie, mais la fiche technique détaillée est en cours de relecture.",
+    "preventif": "Isoler le plant si possible, éviter de toucher les plantes saines après avoir touché la plante malade.",
+    "curatif": "Consulter un conseiller agricole ou le guide de la FAO pour confirmer les pratiques phytosanitaires locales."
+  }
+}
