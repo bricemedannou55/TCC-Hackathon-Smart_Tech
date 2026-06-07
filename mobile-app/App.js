@@ -1,52 +1,91 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
-import HomeScreen from './src/screens/HomeScreen';
+import HomeScreen   from './src/screens/HomeScreen';
+import LoginScreen  from './src/screens/LoginScreen';
 import CameraScreen from './src/screens/CameraScreen';
 import ResultScreen from './src/screens/ResultScreen';
 
 export default function App() {
-  // Gestion simplifiée de la navigation (home, camera, result)
-  const [currentScreen, setCurrentScreen] = useState('home');
-  // Stockage des données du diagnostic reçu de l'API
-  const [scanResult, setScanResult] = useState(null);
+  const [currentScreen, setCurrentScreen]     = useState('home');
+  const [diagnosticResult, setDiagnosticResult] = useState(null);
+  const [isLoggedIn, setIsLoggedIn]           = useState(false);
+  const [language, setLanguage]               = useState('fr');
+  const [showLoginAlert, setShowLoginAlert]   = useState(false);
 
   const navigateTo = (screen) => {
+    // Si pas connecté et veut aller à la caméra → page connexion
+    if (screen === 'camera' && !isLoggedIn) {
+      setShowLoginAlert(true);
+      setCurrentScreen('login');
+      return;
+    }
+    setShowLoginAlert(false);
     setCurrentScreen(screen);
   };
 
+  const handleLogin = (lang) => {
+    setIsLoggedIn(true);
+    if (lang) setLanguage(lang);
+    setCurrentScreen('home');
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setCurrentScreen('home');
+  };
+
   const handleDiagnosticComplete = (result) => {
-    setScanResult(result);
+    setDiagnosticResult(result);
     setCurrentScreen('result');
   };
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      
-      {currentScreen === 'home' && (
-        <HomeScreen onNavigate={navigateTo} />
-      )}
-      
-      {currentScreen === 'camera' && (
-        <CameraScreen 
-          onNavigate={navigateTo} 
-          onDiagnosticComplete={handleDiagnosticComplete} 
-        />
-      )}
-      
-      {currentScreen === 'result' && (
-        <ResultScreen 
-          result={scanResult} 
-          onNavigate={navigateTo} 
-        />
-      )}
-    </SafeAreaView>
-  );
-}
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+  };
 
-const styles = StyleSheet.create({
-  container = {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
+  switch (currentScreen) {
+    case 'home':
+      return (
+        <HomeScreen
+          onNavigate={navigateTo}
+          isLoggedIn={isLoggedIn}
+          onLogout={handleLogout}
+          language={language}
+        />
+      );
+    case 'login':
+      return (
+        <LoginScreen
+          onNavigate={navigateTo}
+          onLogin={handleLogin}
+          onLanguageChange={handleLanguageChange}
+          language={language}
+          showAlert={showLoginAlert}
+        />
+      );
+    case 'camera':
+      return (
+        <CameraScreen
+          onNavigate={navigateTo}
+          onDiagnosticComplete={handleDiagnosticComplete}
+          language={language}
+        />
+      );
+    case 'result':
+      return (
+        <ResultScreen
+          result={diagnosticResult}
+          onNavigate={navigateTo}
+          language={language}
+        />
+      );
+    default:
+      return (
+        <HomeScreen
+          onNavigate={navigateTo}
+          isLoggedIn={isLoggedIn}
+          onLogout={handleLogout}
+          language={language}
+        />
+      );
+  }
+}

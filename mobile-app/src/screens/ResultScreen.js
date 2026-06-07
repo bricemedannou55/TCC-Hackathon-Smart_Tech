@@ -2,24 +2,61 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 
 export default function ResultScreen({ result, onNavigate }) {
-  if (!result) return null;
+  if (!result || !result.apiData) return null;
+
+  const { apiData, currentLanguage } = result;
+
+  // Définition par défaut en Français
+  let displayMaladie = apiData.nom_francais;
+  let displayPreventif = apiData.details.traitement_preventif;
+  let displayCuratif = apiData.details.traitement_curatif;
+  let labelTraitement = "🌿 Traitement recommandé :";
+  let labelPreventif = "Mesures préventives :";
+  let labelCuratif = "Mesures curatives :";
+
+  // Bascule dynamique sur la traduction Éwé si sélectionnée
+  if (currentLanguage === 'ewe' && apiData.langues_locales && apiData.langues_locales.ewe) {
+    displayMaladie = apiData.langues_locales.ewe.nom_local || apiData.nom_francais;
+    displayPreventif = apiData.langues_locales.ewe.traitement_preventif;
+    displayCuratif = apiData.langues_locales.ewe.traitement_curatif;
+    labelTraitement = "🌿 Gbɔdõnu kple Mɔxeɖenuwo :";
+    labelPreventif = "Mɔxeɖenuwo (Préventif) :";
+    labelCuratif = "Gbɔdõnuwo (Curatif) :";
+  } 
+  // Si Kabyè est choisi mais non encore implémenté côté API, on garde le Français par sécurité
+  else if (currentLanguage === 'kabiye') {
+    labelTraitement = "🌿 Sɔnzɩ nɛ Cɔwɛ :";
+  }
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.headerTitle}>Résultat du Diagnostic</Text>
+        <Text style={styles.headerTitle}>
+          {currentLanguage === 'ewe' ? "Kpekpeɖeŋu dɔwɔnu ƒe tɔm" : "Résultat du Diagnostic"}
+        </Text>
 
         {/* Bloc Alerte Maladie */}
         <View style={styles.cardError}>
-          <Text style={styles.labelField}>Culture : <Text style={styles.valueField}>{result.culture}</Text></Text>
-          <Text style={styles.maladieTitle}>{result.maladie}</Text>
-          <Text style={styles.confianceText}>Fiabilité de la détection : {result.confiance}</Text>
+          <Text style={styles.labelField}>
+            {currentLanguage === 'ewe' ? "Agble nuku : " : "Culture : "}
+            <Text style={styles.valueField}>{apiData.culture}</Text>
+          </Text>
+          <Text style={styles.maladieTitle}>{displayMaladie}</Text>
+          <Text style={styles.confianceText}>
+            {currentLanguage === 'ewe' ? "Kakaɖedzi : " : "Fiabilité de la détection : "}
+            {apiData.confiance}%
+          </Text>
         </View>
 
         {/* Bloc Solution / Conseils */}
         <View style={styles.cardRemede}>
-          <Text style={styles.remedeHeader}>🌿 Traitement recommandé :</Text>
-          <Text style={styles.remedeText}>{result.remede}</Text>
+          <Text style={styles.remedeHeader}>{labelTraitement}</Text>
+          
+          <Text style={[styles.remedeText, { fontWeight: 'bold', marginTop: 5 }]}>{labelPreventif}</Text>
+          <Text style={styles.remedeText}>{displayPreventif}</Text>
+          
+          <Text style={[styles.remedeText, { fontWeight: 'bold', marginTop: 15 }]}>{labelCuratif}</Text>
+          <Text style={styles.remedeText}>{displayCuratif}</Text>
         </View>
       </ScrollView>
 
@@ -29,7 +66,9 @@ export default function ResultScreen({ result, onNavigate }) {
           style={styles.returnButton} 
           onPress={() => onNavigate('home')}
         >
-          <Text style={styles.returnButtonText}>Retour à l'accueil</Text>
+          <Text style={styles.returnButtonText}>
+            {currentLanguage === 'ewe' ? "Gbugbɔ yi aƒeme" : "Retour à l'accueil"}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
